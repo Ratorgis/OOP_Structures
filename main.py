@@ -1,4 +1,6 @@
-from data_structure import Node
+from data_structure import Node, Tree
 
 a = Node(1)
-print(a)
+Wood = Tree()
+Wood.root = a
+print(Wood, Wood.root)

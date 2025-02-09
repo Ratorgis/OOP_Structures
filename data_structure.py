@@ -40,5 +40,7 @@ class Tree():
             self.size += 1
     def height(self):
         print(self.height + 1)
+    def size(self):
+        print(self.size)
 
 

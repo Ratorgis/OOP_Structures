@@ -6,4 +6,4 @@ a = list(map(int, input().split()))
 for i in a:
     Wood.add(i)
 
-print(Wood.height)
+print(Wood.size)

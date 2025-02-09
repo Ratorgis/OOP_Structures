@@ -39,6 +39,6 @@ class Tree():
                 self.height = self.lheight + 1
             self.size += 1
     def height(self):
-        print(self.height)
+        print(self.height + 1)
 
 

@@ -1,6 +1,10 @@
 from data_structure import Node, Tree
 
-a = Node(1)
+a = 5
+b = 4
+
 Wood = Tree()
-Wood.root = a
-print(Wood, Wood.root)
+Wood.add(a)
+Wood.add(b) 
+
+print(Wood, '\n', Wood.root.value,  '\n', Wood.root.left_descendant.value)

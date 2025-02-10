@@ -72,7 +72,9 @@ class Tree():
         self.lheight = 0
         self.arr = []
     def add(self, value):
-        if value in self.arr:
+        if value == 0:
+            return
+        elif value in self.arr:
             return print("ALREADY")
         else:
             self.arr.append(value)

@@ -7,5 +7,5 @@ a.pop()
 for i in a:
     Wood.add(i)
 
-for n in Wood.all_elem():
-    print(n)
+n = int(input())
+Wood.find(n)

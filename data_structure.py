@@ -1,3 +1,17 @@
+def bypass(addres):
+    if (addres.left_descendant != None) and (addres.right_descendant != None):
+        bypass(addres.left_descendant)
+        print(addres.value)
+        return bypass(addres.right_descendant)
+    elif (addres.left_descendant == None) and (addres.right_descendant != None):
+        print(addres.value)
+        return bypass(addres.right_descendant)
+    elif (addres.left_descendant != None) and (addres.right_descendant == None):
+        bypass(addres.left_descendant)
+        return print(addres.value)
+    else:
+        return print(addres.value)
+
 def search(elem, addres):
     if addres.value > elem:
         if addres.left_descendant == None:
@@ -29,20 +43,20 @@ def tree_visualization(addres, height):
     else:
         return print('.' * height, addres.value)
 
-def bypass(new_elem, addres, local_height):
+def accommodation(new_elem, addres, local_height):
     local_height += 1
     if new_elem.value > addres.value:
         if addres.right_descendant == None:
             addres.right_descendant = new_elem
             return local_height
         else:
-            return bypass(new_elem, addres.right_descendant, local_height)
+            return accommodation(new_elem, addres.right_descendant, local_height)
     elif new_elem.value < addres.value:
         if addres.left_descendant == None:
             addres.left_descendant = new_elem
             return local_height
         else:
-            return bypass(new_elem, addres.left_descendant, local_height)
+            return accommodation(new_elem, addres.left_descendant, local_height)
 
 class Node():
     def __init__(self, value):
@@ -69,7 +83,7 @@ class Tree():
             else:
                 n1 = Node(value)
                 self.lheight = 0
-                self.lheight = bypass(n1, self.root, self.lheight)
+                self.lheight = accommodation(n1, self.root, self.lheight)
                 if self.lheight + 1 > self.height:
                     self.height = self.lheight + 1
                 self.size += 1
@@ -79,7 +93,7 @@ class Tree():
     def size(self):
         return print(self.size)
     def all_elem(self):
-        return sorted(self.arr)
+        return bypass(self.root)
     def find(self, elem):
         return search(elem, self.root)
     def printtree(self):

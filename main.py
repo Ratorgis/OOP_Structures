@@ -1,10 +1,15 @@
 from data_structure import Tree
 
 Wood = Tree()
-a = list(map(int, input().split()))
-a.pop()
 
-for i in a:
-    Wood.add(i)
+with open('./test.txt', 'r') as f:
+    n = list(f.readlines())
 
-Wood.printtree()
+for k in n:
+    i = list(k.split())
+    if i[0] == "ADD":
+        Wood.add(int(i[1]))
+    elif i[0] == "SEARCH":
+        Wood.find(int(i[1]))
+    elif i[0] == "PRINTTREE":
+        Wood.printtree()

@@ -25,8 +25,9 @@ class Tree():
         self.size = 0
         self.height = 0
         self.lheight = 0
-
+        self.arr = []
     def add(self, value):
+        self.arr.append(value)
         if self.size == 0:
             n1 = Node(value)
             self.root = n1 
@@ -42,5 +43,7 @@ class Tree():
         print(self.height + 1)
     def size(self):
         print(self.size)
+    def all_elem(self):
+        return sorted(self.arr)
 
 

@@ -1,3 +1,21 @@
+def search(elem, addres):
+    if addres.value > elem:
+        if addres.left_descendant == None:
+            print("NO")
+        else:
+            search(elem, addres.left_descendant)
+    elif addres.value < elem:
+        if addres.right_descendant == None:
+            print("NO")
+        else:
+            search(elem, addres.right_descendant)
+    else:
+        if elem == addres.value:
+            return print("YES")
+        else:
+            return print("NO")
+
+
 def bypass(new_elem, addres, local_height):
     local_height += 1
     if new_elem.value > addres.value:
@@ -49,5 +67,6 @@ class Tree():
         print(self.size)
     def all_elem(self):
         return sorted(self.arr)
-
+    def find(self, elem):
+        return search(elem, self.root)
 

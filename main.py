@@ -7,4 +7,5 @@ a.pop()
 for i in a:
     Wood.add(i)
 
-print(Wood.size)
+for n in Wood.all_elem():
+    print(n)

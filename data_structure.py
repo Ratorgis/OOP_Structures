@@ -15,6 +15,19 @@ def search(elem, addres):
         else:
             return print("NO")
 
+def tree_visualization(addres, height):
+    if (addres.left_descendant != None) and (addres.right_descendant != None):
+        tree_visualization(addres.right_descendant, height + 1)
+        print("." * height, addres.value)
+        return tree_visualization(addres.left_descendant, height + 1)
+    elif (addres.right_descendant == None) and (addres.left_descendant != None):
+        print('.' * height, addres.value)
+        return tree_visualization(addres.left_descendant, height + 1)
+    elif (addres.left_descendant == None) and (addres.right_descendant != None):
+        tree_visualization(addres.right_descendant, height + 1)
+        return print('.' * height, addres.value)
+    else:
+        return print('.' * height, addres.value)
 
 def bypass(new_elem, addres, local_height):
     local_height += 1
@@ -62,11 +75,13 @@ class Tree():
                 self.size += 1
             print("DONE")
     def height(self):
-        print(self.height + 1)
+        return print(self.height + 1)
     def size(self):
-        print(self.size)
+        return print(self.size)
     def all_elem(self):
         return sorted(self.arr)
     def find(self, elem):
         return search(elem, self.root)
+    def printtree(self):
+        return tree_visualization(self.root, 0)
 

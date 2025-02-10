@@ -27,18 +27,22 @@ class Tree():
         self.lheight = 0
         self.arr = []
     def add(self, value):
-        self.arr.append(value)
-        if self.size == 0:
-            n1 = Node(value)
-            self.root = n1 
-            self.size += 1
+        if value in self.arr:
+            return print("ALREADY")
         else:
-            n1 = Node(value)
-            self.lheight = 0
-            self.lheight = bypass(n1, self.root, self.lheight)
-            if self.lheight + 1 > self.height:
-                self.height = self.lheight + 1
-            self.size += 1
+            self.arr.append(value)
+            if self.size == 0:
+                n1 = Node(value)
+                self.root = n1 
+                self.size += 1
+            else:
+                n1 = Node(value)
+                self.lheight = 0
+                self.lheight = bypass(n1, self.root, self.lheight)
+                if self.lheight + 1 > self.height:
+                    self.height = self.lheight + 1
+                self.size += 1
+            print("DONE")
     def height(self):
         print(self.height + 1)
     def size(self):

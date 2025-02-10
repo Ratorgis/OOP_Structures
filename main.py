@@ -7,5 +7,4 @@ a.pop()
 for i in a:
     Wood.add(i)
 
-n = int(input())
-Wood.find(n)
+Wood.printtree()
